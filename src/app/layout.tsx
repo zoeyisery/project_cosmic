@@ -1,4 +1,8 @@
 import React from "react";
+import Header from "@/components/Header/Header";
+import Navigation from "@/components/NavigationBar/NavigationBar";
+import Footer from "@/components/Footer/Footer";
+import "./globals.css";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -6,10 +10,15 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <html lang="en">
         <head>
           <meta charSet="UTF-8" />
-          <title>Cosmic</title>
+          <title>cosmic</title>
         </head>
         <body>
-          <main> {children}</main>
+          <div className="layoutContainer">
+            <Header />
+            <main> {children}</main>
+            <Footer />
+            <Navigation />
+          </div>
         </body>
       </html>
     </>
