@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "@fontsource/material-icons";
 import styles from "./Header.module.css";
+import { Icon } from "../Icon/Icon";
 
 const Header = () => {
   return (
@@ -9,7 +10,7 @@ const Header = () => {
         <div className={styles.headerContainer}>
           <h1 className={styles.logo}>cosmic</h1>
           <div className={styles.buttonContainer}>
-            <span className="material-symbols-outlined">filter_list</span>
+            <Icon name="filter_list"></Icon>
           </div>
         </div>
       </header>
