@@ -3,6 +3,7 @@ import Header from "@/components/Header/Header";
 import Navigation from "@/components/NavigationBar/NavigationBar";
 import Footer from "@/components/Footer/Footer";
 import "./globals.css";
+import "@/styles/layout.css";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -13,7 +14,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <title>cosmic</title>
         </head>
         <body>
-          <div className="layoutContainer">
+          <div className="layout-container">
             <Header />
             <main> {children}</main>
             <Footer />
