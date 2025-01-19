@@ -19,7 +19,7 @@ const Navigation = () => {
         <Link href="/alert">
           <Icon name="notifications" />
         </Link>
-        <Link href="/auth">
+        <Link href="/user">
           <Icon name="account_circle" />
         </Link>
       </ul>
