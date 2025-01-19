@@ -1,0 +1,11 @@
+.banner {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15); /* 부드럽고 입체적인 그림자 */
+}
