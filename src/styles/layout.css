@@ -1,4 +1,4 @@
-.layout-container {
+.layoutContainer {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -20,20 +20,20 @@ html {
 }
 
 @media (max-width: 640px) {
-  .layout-container {
+  .layoutContainer {
     width: 100%;
     padding: 8px;
   }
 }
 
 @media (min-width: 768px) {
-  .layout-container {
+  .layoutContainer {
     width: 40%;
   }
 }
 
 @media (min-width: 1024px) {
-  .layout-container {
+  .layoutContainer {
     width: 60%;
   }
 }
