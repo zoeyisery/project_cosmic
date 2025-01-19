@@ -1,18 +1,12 @@
-import React, { useState } from "react";
-import "@fontsource/material-icons";
+import React from "react";
 import styles from "./Header.module.css";
-import { Icon } from "../Icon/Icon";
+import HeaderContents from "./HeaderContents";
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <>
       <header className={styles.header}>
-        <div className={styles.headerContainer}>
-          <h1 className={styles.logo}>cosmic</h1>
-          <div className={styles.buttonContainer}>
-            <Icon name="filter_list"></Icon>
-          </div>
-        </div>
+        <HeaderContents />
       </header>
     </>
   );
