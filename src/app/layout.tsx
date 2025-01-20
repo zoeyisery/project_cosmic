@@ -12,13 +12,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <meta charSet="UTF-8" />
           <title>cosmic</title>
         </head>
-        <body>
-          <div className="layoutContainer">
-            <Header />
-            <main> {children}</main>
-            <Footer />
-            <Navigation />
-          </div>
+        <body className="layoutContainer">
+          <Header />
+          <main> {children}</main>
+          <Footer />
+          <Navigation />
         </body>
       </html>
     </>

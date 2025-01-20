@@ -32,23 +32,6 @@
   width: 100%;
 }
 
-.authPageBody {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding-bottom: 10px;
-  flex-grow: 1;
-  width: 100%;
-  align-items: center;
-}
-
-.logo {
-  font-weight: bold;
-  font-size: 3rem;
-  color: #f4c542;
-  margin-bottom: 0;
-}
-
 @media (max-width: 640px) {
   .authPageContainer {
     width: 100%;
