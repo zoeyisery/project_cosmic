@@ -1,20 +1,20 @@
 .navigation {
   position: fixed;
-  bottom: 1rem;
+  bottom: 0rem;
+  width: 100%;
   left: 0;
   right: 0;
-  width: 90%;
   margin: 0 auto;
-  text-align: center;
   background-color: #2d3748;
-  border-radius: 9999px;
-  padding: 10px;
+  padding: 5px;
+  box-sizing: border-box;
 }
 
 .navLinks {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   gap: 2rem;
+  padding-left: 0;
 }
 
 .navLinks li {
