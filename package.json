@@ -11,10 +11,13 @@
   "dependencies": {
     "@fontsource/material-icons": "^5.1.1",
     "@fontsource/material-symbols-outlined": "^5.1.4",
+    "@reduxjs/toolkit": "^2.5.0",
     "material-symbols": "^0.27.2",
     "next": "15.1.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0",
+    "redux": "^5.0.1",
     "styled-components": "^6.1.14"
   },
   "devDependencies": {
