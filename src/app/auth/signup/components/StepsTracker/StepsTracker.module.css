@@ -1,0 +1,21 @@
+.stepsTracker {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.stepsTracker div {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+}
+
+.stepsTracker div.active {
+  background-color: #4caf50;
+}
