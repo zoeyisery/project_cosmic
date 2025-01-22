@@ -7,21 +7,20 @@ import styles from "./user.module.css";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 import { RootState } from "@/store/store";
-import { loginRedirect } from "@/store/actions/userAction";
+import { useRedirect } from "@/hooks/useRedirect";
 
-const UserPage: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const UserPage: React.FC = () => {
   const router = useRouter();
   const isLoggedIn = useSelector((state: RootState) => state.user.isLoggedIn);
 
   useEffect(() => {
-    loginRedirect(isLoggedIn, router);
+    useRedirect(isLoggedIn, router);
   }, [isLoggedIn, router]);
 
   return (
     <div className={styles.userPageContainer}>
       {!isLoggedIn && <AuthBanner />}
       {!isLoggedIn && <PromoBanner />}
-      {children}
     </div>
   );
 };
