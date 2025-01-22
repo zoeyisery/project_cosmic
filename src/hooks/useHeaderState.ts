@@ -10,7 +10,7 @@ export const useHeaderState = () => {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (pathname === "/user") {
+    if (pathname.startsWith("/user")) {
       setHeaderTitle("MY");
       setIconName("settings");
     } else {

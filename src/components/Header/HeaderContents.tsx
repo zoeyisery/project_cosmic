@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useHeaderState } from "@/hooks/helpers/useHeaderState";
+import { useHeaderState } from "@/hooks/useHeaderState";
 import styles from "./Header.module.css";
 import "@fontsource/material-icons";
 import { Icon } from "../Icon/Icon";
