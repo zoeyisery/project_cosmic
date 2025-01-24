@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import styles from "./Icon.module.css"; // 모듈 CSS 파일을 import
+import styles from "./Icon.module.css"; 
 
 export type IconProps = {
   name: string;
