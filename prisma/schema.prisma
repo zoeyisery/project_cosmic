@@ -1,0 +1,81 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              Int       @id @default(autoincrement())
+  email           String    @unique
+  password        String
+  name            String?
+  profilePicture  String?
+  bio             String?
+  posts           Post[]    
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+model Tag {
+  id    Int       @id @default(autoincrement())
+  name  String    @unique
+  posts Post[]    @relation("PostTags", references: [id], through: PostTag)
+}
+
+model Post {
+  id        Int       @id @default(autoincrement())
+  title     String
+  content   String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    Int
+  tags      Tag[]     @relation("PostTags", references: [id], through: PostTag)
+  createdAt DateTime  @default(now())
+}
+
+model PostTag {
+  post   Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId Int
+  tag    Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  tagId  Int
+
+  @@id([postId, tagId])
+}
+
+model Product {
+  id            Int       @id @default(autoincrement()) 
+  name          String    @unique                    
+  description   String?                               
+  price         Decimal                               
+  imageUrl      String?                               L
+  tags          Tag[]     @relation("ProductTags", references: [id], through: ProductTag) 
+  posts         Post[]    @relation("ProductPosts")   
+  createdAt     DateTime  @default(now())             
+  updatedAt     DateTime  @updatedAt                 
+}
+
+model ProductTag {
+  product  Product @relation(fields: [productId], references: [id], onDelete: Cascade) 
+  productId Int
+  tag       Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)    
+  tagId     Int
+
+  @@id([productId, tagId]) 
+}
+
+model ProductPost {
+  product  Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId Int
+  post      Post    @relation(fields: [postId], references: [id], onDelete: Cascade)  
+  postId    Int
+
+  @@id([productId, postId]) 
+}
