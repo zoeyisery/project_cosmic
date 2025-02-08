@@ -28,7 +28,8 @@ model User {
 model Tag {
   id    Int       @id @default(autoincrement())
   name  String    @unique
-  posts Post[]    @relation("PostTags", references: [id], through: PostTag)
+  posts PostTag[]
+  productTags ProductTag[]
 }
 
 model Post {
@@ -37,7 +38,8 @@ model Post {
   content   String
   user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    Int
-  tags      Tag[]     @relation("PostTags", references: [id], through: PostTag)
+  tags      PostTag[]     
+  productPosts ProductPost[] @relation("ProductPosts", map: "Post_ProductPost_fkey") 
   createdAt DateTime  @default(now())
 }
 
@@ -55,11 +57,10 @@ model Product {
   name          String    @unique                    
   description   String?                               
   price         Decimal                               
-  imageUrl      String?                               L
-  tags          Tag[]     @relation("ProductTags", references: [id], through: ProductTag) 
-  posts         Post[]    @relation("ProductPosts")   
-  createdAt     DateTime  @default(now())             
-  updatedAt     DateTime  @updatedAt                 
+  imageUrl      String?                               
+  tags          ProductTag[]    
+  productPosts  ProductPost[] @relation("ProductPosts", map: "Product_ProductPost_fkey") 
+  createdAt     DateTime  @default(now())                        
 }
 
 model ProductTag {
@@ -72,10 +73,10 @@ model ProductTag {
 }
 
 model ProductPost {
-  product  Product @relation(fields: [productId], references: [id], onDelete: Cascade)
-  productId Int
-  post      Post    @relation(fields: [postId], references: [id], onDelete: Cascade)  
-  postId    Int
+  product    Product  @relation("ProductPosts", fields: [productId], references: [id], onDelete: Cascade)
+  productId  Int
+  post       Post     @relation("ProductPosts", fields: [postId], references: [id], onDelete: Cascade)
+  postId     Int
 
-  @@id([productId, postId]) 
+  @@id([productId, postId]) // 복합 Primary Key 설정
 }

@@ -3,23 +3,41 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from "firebase/auth";
-import { auth } from "@/firebaseConfig";
+import { app } from "./firebaseConfig";
 
-export const signUpWithEmail = async (email: string, password: string) => {
+const auth = getAuth(app);
+
+export const signUpUser = async (
+  name: string,
+  email: string,
+  password: string
+) => {
+  console.log("📢 회원가입 요청:", { name, email, password });
+
   try {
     const userCredential = await createUserWithEmailAndPassword(
       auth,
       email,
       password
     );
-    return userCredential.user;
+    const user = userCredential.user;
+
+    if (user) {
+      await updateProfile(user, {
+        displayName: name,
+      });
+    }
+    console.log("user:", user);
+    return user;
   } catch (error) {
+    console.error("❌ Firebase Signup Error:", error);
     throw error;
   }
 };
 
-export const signInWithEmail = async (email: string, password: string) => {
+export const signInUser = async (email: string, password: string) => {
   try {
     const userCredential = await signInWithEmailAndPassword(
       auth,

@@ -35,12 +35,12 @@
 
 @media (min-width: 1024px) {
   .navigation {
-    width: 60%;
+    width: 45%;
   }
 }
 
 @media (min-width: 1280px) {
   .navigation {
-    width: 60%;
+    width: 45%;
   }
 }

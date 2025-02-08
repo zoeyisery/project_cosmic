@@ -4,9 +4,10 @@
   margin: 0 auto;
   padding: 10px 12px;
   background-color: white;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   //border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
 }
 
 body {
@@ -14,6 +15,7 @@ body {
   background-color: #f7f7f7;
   margin: 0;
   padding: 0;
+  height: 100vh;
 }
 
 html {
@@ -35,6 +37,6 @@ html {
 
 @media (min-width: 1024px) {
   .layoutContainer {
-    width: 60%;
+    width: 45%;
   }
 }
