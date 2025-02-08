@@ -6,7 +6,7 @@ import styles from "./AuthBanner.module.css";
 
 const AuthBanner: React.FC = () => {
   return (
-    <Link href="/auth/login">
+    <Link href="/auth/signin">
       <div className={styles.banner}>
         <div>
           <h4>코스믹 로그인 및 회원 가입</h4>

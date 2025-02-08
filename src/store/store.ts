@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./slices/userSlice";
+import signupReducer from "./slices/signupSlice";
 import { thunk } from "redux-thunk";
 
 const store = configureStore({
   reducer: {
     user: userReducer,
+    signup: signupReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
 });

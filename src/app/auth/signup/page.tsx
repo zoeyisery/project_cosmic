@@ -1,34 +1,43 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import AuthPage from "@/app/auth/page";
 import StepsTracker from "./components/StepsTracker/StepsTracker";
-import { useStep } from "@/hooks/useStep";
 import Link from "next/link";
-import { userController } from "@/controllers/userController";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
+import { userController } from "@/controllers/userController";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
 import { Icon } from "@/components/Icon/Icon";
 import styles from "./signup.module.css";
+import NameField from "./components/NameField/NameField";
+import CredentialsField from "./components/CredentialsField/CredentialsField";
+import { useRouter } from "next/navigation";
 
 const SignupPage: React.FC = () => {
   const dispatch = useAppDispatch();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
-  const { currentStep, nextStep, prevStep } = useStep(1, 3);
+  const router = useRouter();
+  const name = useSelector((state: RootState) => state.signup.name);
+  const email = useSelector((state: RootState) => state.signup.email);
+  const password = useSelector((state: RootState) => state.signup.password);
+  const confirmPassword = useSelector(
+    (state: RootState) => state.signup.confirmPassword
+  );
+  const currentStep = useSelector(
+    (state: RootState) => state.signup.currentStep
+  );
 
   const handleSignUp = userController();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    /*if (password !== confirmPassword) {
-      setError("비밀번호가 일치하지 않습니다.");
-      return;
-    }*/
-
-    dispatch(handleSignUp.signUp(email, password));
+    console.log("submit:", name, email, password);
+    dispatch(handleSignUp.signUp(email, password, name));
+    router.push("/user/profile");
   };
+
+  const isConfirmValid =
+    confirmPassword.length >= 6 && password === confirmPassword;
 
   return (
     <AuthPage>
@@ -40,37 +49,16 @@ const SignupPage: React.FC = () => {
         </div>
         <div className={styles.signupPageBody}>
           <StepsTracker currentStep={currentStep} />
-          <h3>이메일과 비밀번호를 입력해주세요</h3>
           <form onSubmit={handleSubmit}>
-            <div className={styles.formContainer}>
-              <div className={styles.inputGroup}>
-                <input
-                  id="email"
-                  type="email"
-                  placeholder="Enter your email"
-                  className={styles.inputField}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
-              <div className={styles.inputGroup}>
-                <input
-                  id="password"
-                  type="password"
-                  placeholder="Enter your password"
-                  className={styles.inputField}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-              </div>
+            {currentStep === 1 && <NameField />}
+            {(currentStep === 2 || currentStep == 3) && <CredentialsField />}
+            {currentStep === 3 && isConfirmValid && (
               <div className={styles.buttonGroup}>
-                <button className={styles.nextButton} type="submit">
-                  다음
+                <button className={styles.signupButton} type="submit">
+                  Sign Up
                 </button>
               </div>
-            </div>
+            )}
           </form>
         </div>
       </div>

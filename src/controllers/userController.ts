@@ -4,14 +4,12 @@ import {
   handleSignOut,
 } from "@/store/actions/userAction";
 import { AppDispatch } from "@/store/store";
-import { useDispatch } from "react-redux";
 
 export const userController = () => {
-  const dispatch = useDispatch();
-
   const signUp =
-    (email: string, password: string) => async (dispatch: AppDispatch) => {
-      await dispatch(handleSignUp(email, password));
+    (name: string, email: string, password: string) =>
+    async (dispatch: AppDispatch) => {
+      await dispatch(handleSignUp(name, email, password));
     };
 
   const signIn =
