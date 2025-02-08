@@ -38,12 +38,12 @@ const SigninPage: React.FC = () => {
       <div className={styles.loginPageContainer}>
         <div className={styles.loginPageHeader}>
           <Link href="/user">
-            <Icon name="close"></Icon>
+            <Icon name="close" size="25px" />
           </Link>
         </div>
         <div className={styles.loginPageBody}>
           <div className={styles.logo}>
-            <h1>cosmic</h1>
+            <h2>Login</h2>
           </div>
           <form onSubmit={handleSubmit}>
             <div className={styles.formContainer}>
@@ -52,7 +52,7 @@ const SigninPage: React.FC = () => {
                   id="email"
                   type="email"
                   value={email}
-                  placeholder="Enter your email"
+                  placeholder="Email"
                   className={styles.inputField}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -63,7 +63,7 @@ const SigninPage: React.FC = () => {
                   id="password"
                   type="password"
                   value={password}
-                  placeholder="Enter your password"
+                  placeholder="Password"
                   className={styles.inputField}
                   onChange={(e) => setPassword(e.target.value)}
                   required
@@ -71,13 +71,16 @@ const SigninPage: React.FC = () => {
               </div>
               <div className={styles.buttonGroup}>
                 <button className={styles.loginButton} type="submit">
-                  Log In
+                  Login
                 </button>
               </div>
-              <div className={styles.buttonGroup}>
-                <Link href="/auth/signup">
-                  <button className={styles.signupButton}>Sign Up</button>
-                </Link>
+              <div className={styles.textGroup}>
+                <p>
+                  코스믹이 처음이세요?{" "}
+                  <Link href="/auth/signup" className={styles.signupLink}>
+                    회원가입
+                  </Link>
+                </p>
               </div>
             </div>
           </form>
