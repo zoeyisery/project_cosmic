@@ -57,7 +57,8 @@ model Product {
   name          String    @unique                    
   description   String?                               
   price         Decimal                               
-  imageUrl      String?                               
+  imageUrl      String?
+  banners       Banner[]                               
   tags          ProductTag[]    
   productPosts  ProductPost[] @relation("ProductPosts", map: "Product_ProductPost_fkey") 
   createdAt     DateTime  @default(now())                        
@@ -79,4 +80,16 @@ model ProductPost {
   postId     Int
 
   @@id([productId, postId]) // 복합 Primary Key 설정
+}
+
+model Banner {
+  id          Int      @id @default(autoincrement()) 
+  product     Product? @relation(fields: [productId], references: [id]) 
+  productId   Int?     
+  imageUrl    String   
+  detailUrl   String?
+  adTitle     String   
+  adText      String   
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }

@@ -1,0 +1,31 @@
+.bannerContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #faed7d;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.bannerImage {
+  width: 120px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 8px;
+  padding-right: 10px;
+}
+
+.bannerText {
+  flex: 1;
+  padding: 12px;
+  padding-left: 15px;
+}

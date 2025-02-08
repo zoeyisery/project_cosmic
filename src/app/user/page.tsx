@@ -3,6 +3,7 @@
 import React, { useEffect } from "react";
 import AuthBanner from "./components/AuthBanner/AuthBanner";
 import PromoBanner from "./components/PromoBanner/PromoBanner";
+import Banner from "@/components/Banner/Banner";
 import styles from "./user.module.css";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
@@ -20,7 +21,7 @@ const UserPage: React.FC = () => {
   return (
     <div className={styles.userPageContainer}>
       {!isLoggedIn && <AuthBanner />}
-      {!isLoggedIn && <PromoBanner />}
+      {!isLoggedIn && <Banner />}
     </div>
   );
 };
