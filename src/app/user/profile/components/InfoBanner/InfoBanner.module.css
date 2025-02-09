@@ -1,0 +1,64 @@
+.bannerContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.banner {
+  padding: 8px;
+  display: flex;
+  position: relative;
+  background-color: #faecc5;
+  text-decoration: none;
+  width: 100%;
+  border-radius: 8px;
+  justify-content: space-between;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.bannerPart {
+  flex: 1;
+  flex-direction: column;
+}
+.iconPart {
+  display: flex;
+  align-items: center;
+}
+
+.infoPart {
+  display: flex;
+}
+
+.infoText {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.infoText h4 {
+  margin: 0;
+  padding: 0;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.infoText p {
+  margin: 0;
+  padding: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.infoImage {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 100px;
+  margin: 5px;
+}
+
+.bioPart {
+  margin-left: 5px;
+}
