@@ -13,7 +13,7 @@
     "@fontsource/material-symbols-outlined": "^5.1.4",
     "@prisma/client": "^6.4.0-integration-engines-6-4-0-5-chore-rename-error-kinds-6be5d359e3dccb7e8b623fad8d36236047e2936f.1",
     "@prisma/studio": "^0.508.0",
-    "@reduxjs/toolkit": "^2.5.0",
+    "@reduxjs/toolkit": "^2.5.1",
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.7",
     "firebase": "^11.2.0",
@@ -25,6 +25,7 @@
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",
     "redux": "^5.0.1",
+    "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^3.1.0",
     "styled-components": "^6.1.14"
   },
