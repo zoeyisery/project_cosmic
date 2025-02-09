@@ -44,13 +44,15 @@ const SignupPage: React.FC = () => {
       <div className={styles.signupPageContainer}>
         <div className={styles.signupPageHeader}>
           <Link href="/user">
-            <Icon name="chevron_left"></Icon>
+            <Icon name="chevron_left" size="35px" />
           </Link>
         </div>
         <div className={styles.signupPageBody}>
-          <StepsTracker currentStep={currentStep} />
+          <div className={styles.logo}>
+            <h2>Register</h2>
+          </div>
           <form onSubmit={handleSubmit}>
-            {currentStep === 1 && <NameField />}
+            <NameField />
             {(currentStep === 2 || currentStep == 3) && <CredentialsField />}
             {currentStep === 3 && isConfirmValid && (
               <div className={styles.buttonGroup}>

@@ -16,7 +16,7 @@ const FieldHelper: React.FC<FieldHelperProps> = ({
   if (!errorType) return null; // 에러가 없으면 메시지를 표시하지 않음
 
   return (
-    <p style={{ color: isValid ? "black" : "red", fontSize: "12px" }}>
+    <p style={{ color: isValid ? "white" : "red", fontSize: "10px" }}>
       {FieldHelperMessage[field][errorType]}
     </p>
   );

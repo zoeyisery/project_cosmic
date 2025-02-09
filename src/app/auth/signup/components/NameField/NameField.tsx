@@ -19,13 +19,12 @@ const NameField: React.FC = () => {
   }, [name, dispatch]);
 
   return (
-    <div>
-      <h3>이름을 입력해주세요</h3>
-      <div className={styles.nameFieldContainer}>
+    <div className={styles.nameFieldContainer}>
+      <div className={styles.inputGroup}>
         <input
           id="name"
           type="text"
-          placeholder="Enter your name"
+          placeholder="Name"
           className={styles.nameField}
           value={localName}
           onChange={(e) => setLocalName(e.target.value)}

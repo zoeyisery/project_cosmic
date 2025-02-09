@@ -19,17 +19,11 @@
   flex-direction: column;
   margin: 0 auto;
   max-width: 1200px;
-  padding: 0px;
+  padding-top: 0px;
   justify-content: flex-start;
   align-items: center;
   padding: 20px;
   box-sizing: border-box;
-}
-
-.authPageHeader {
-  display: flex;
-  justify-content: flex-start;
-  width: 100%;
 }
 
 @media (max-width: 640px) {
@@ -42,6 +36,7 @@
 @media (min-width: 768px) {
   .authPageContainer {
     width: 40%;
+    padding-top: 0;
   }
 }
 

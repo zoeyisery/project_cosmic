@@ -4,12 +4,24 @@
   align-items: center;
   flex-direction: column;
   padding: 10px;
+
+  height: 100%;
   width: 100%;
 }
 
 .signupPageHeader {
   display: flex;
   justify-content: flex-start;
+  width: 100%;
+  padding-left: 0;
+}
+
+.signupPageBody {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 10px;
+  flex-grow: 1;
   width: 100%;
 }
 
@@ -55,4 +67,12 @@
 
 .signupButton:hover {
   background-color: #0056b3;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.7rem;
+  color: #5d5d5d;
+  height: 100px;
+  margin: 0 auto;
 }
