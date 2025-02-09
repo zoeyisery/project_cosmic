@@ -3,7 +3,7 @@ import {
   signInUser,
   signOutUser,
 } from "@/firebase/firebaseService";
-import { login, logout } from "../slices/userSlice";
+import { signin, signout } from "../slices/userSlice";
 import { AppDispatch } from "../store";
 
 export const handleSignUp =
@@ -23,7 +23,7 @@ export const handleSignUp =
       if (response.ok) {
         const { token } = await response.json();
         if (userEmail) {
-          dispatch(login({ uid, email: userEmail, token }));
+          dispatch(signin({ uid, email: userEmail, token }));
         } else {
           console.error("이메일 정보가 없습니다.");
         }
@@ -40,7 +40,7 @@ export const handleSignIn =
     try {
       const { uid, email: userEmail } = await signInUser(email, password);
 
-      const response = await fetch("/api/auth/login", {
+      const response = await fetch("/api/auth/signin", {
         method: "POST",
         body: JSON.stringify({ email, password }),
         headers: {
@@ -48,18 +48,17 @@ export const handleSignIn =
         },
       });
 
-      console.log("Response status:", response.status);
-
-      // 응답 데이터 확인
       const data = await response.json();
-      console.log("Response data:", data);
 
       if (response.ok) {
-        const { token } = await response.json();
         if (userEmail) {
-          dispatch(login({ uid, email: userEmail, token }));
+          const userPayload = { uid, email: userEmail, token: data.token };
+          dispatch(signin(userPayload));
+          localStorage.setItem("authToken", data.token);
+          localStorage.setItem("userData", JSON.stringify(userPayload));
+        } else {
+          console.error("이메일 정보가 없습니다.");
         }
-        console.error("이메일 정보가 없습니다.");
       } else {
         console.error("이메일 정보가 없습니다.");
       }
@@ -71,7 +70,7 @@ export const handleSignIn =
 export const handleSignOut = () => async (dispatch: AppDispatch) => {
   try {
     await signOutUser();
-    dispatch(logout());
+    dispatch(signout());
   } catch (error) {
     console.error("로그아웃 실패", error);
   }

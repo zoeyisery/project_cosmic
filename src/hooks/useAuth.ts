@@ -1,27 +1,33 @@
 "use client";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { login, logout } from "@/store/slices/userSlice";
+import { useAppDispatch } from "./useAppDispatch";
+import { signin, signout } from "@/store/slices/userSlice";
 import { verifyToken } from "@/utils/authUtil";
 
 const AppInitializer = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const token = localStorage.getItem("authToken");
-    if (token) {
+    const userData = localStorage.getItem("userData");
+
+    if (token && userData) {
+      const parseUserData = JSON.parse(userData);
       const isValid = verifyToken(token);
+      console.log("isValid:", isValid);
+
       if (isValid) {
         dispatch(
-          login({
+          signin({
             token,
-            uid: "",
-            email: "",
+            uid: parseUserData.uid,
+            email: parseUserData.email,
           })
         );
       } else {
-        dispatch(logout());
+        dispatch(signout());
         localStorage.removeItem("authToken");
+        localStorage.removeItem("userData");
       }
     }
   }, []);
