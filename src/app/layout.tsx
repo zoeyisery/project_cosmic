@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import Header from "@/components/Header/Header";
-import Navigation from "@/components/NavigationBar/NavigationBar";
-import Footer from "@/components/Footer/Footer";
+import Header from "@/components/layout/Header/Header";
+import Navigation from "@/components/layout/Navigation/NavigationBar";
+import Footer from "@/components/layout/Footer/Footer";
 import AppInitializer from "@/hooks/useAuth";
 import { Provider } from "react-redux";
 import store from "@/store/store";

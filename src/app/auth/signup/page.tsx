@@ -8,7 +8,7 @@ import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { userController } from "@/controllers/userController";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
-import { Icon } from "@/components/Icon/Icon";
+import { Icon } from "@/components/common/Icon/Icon";
 import styles from "./signup.module.css";
 import NameField from "./components/NameField/NameField";
 import CredentialsField from "./components/CredentialsField/CredentialsField";

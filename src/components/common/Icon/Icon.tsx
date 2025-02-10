@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import styles from "./Icon.module.css"; 
+import styles from "./Icon.module.css";
 
 export type IconProps = {
   name: string;

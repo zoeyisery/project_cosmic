@@ -1,7 +1,7 @@
 import React from "react";
 import "@fontsource/material-icons";
 import Link from "next/link";
-import { Icon } from "@/components/Icon/Icon";
+import { Icon } from "@/components/common/Icon/Icon";
 import styles from "./AuthBanner.module.css";
 
 const AuthBanner: React.FC = () => {

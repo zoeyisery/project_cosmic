@@ -3,13 +3,9 @@ import React, { useEffect, useState } from "react";
 import AuthPage from "@/app/auth/page";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useSelector } from "react-redux";
 import { userController } from "@/controllers/userController";
-import { Icon } from "@/components/Icon/Icon";
-import { RootState } from "@/store/store";
+import { Icon } from "@/components/common/Icon/Icon";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
-import { useRedirect } from "@/hooks/useRedirect";
-
 import styles from "./signin.module.css";
 
 const SigninPage: React.FC = () => {

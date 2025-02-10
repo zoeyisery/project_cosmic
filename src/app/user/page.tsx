@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import AuthBanner from "./components/AuthBanner/AuthBanner";
 import PromoBanner from "./components/PromoBanner/PromoBanner";
-import Banner from "@/components/Banner/Banner";
+import Banner from "@/components/banner/PromoBanner/Banner";
 import styles from "./user.module.css";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/navigation";

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import "@fontsource/material-icons";
-import { Icon } from "@/components/Icon/Icon";
+import { Icon } from "@/components/common/Icon/Icon";
 import styles from "./InfoBanner.module.css";
 
 interface InfoBanner {
