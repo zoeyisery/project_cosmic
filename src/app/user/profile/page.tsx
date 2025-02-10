@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import { useSelector } from "react-redux";
 import { userController } from "@/controllers/userController";
 import { useRouter } from "next/navigation";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import styles from "./profile.module.css";
 import InfoBanner from "./components/InfoBanner/InfoBanner";
+import Posts from "./components/Posts/Posts";
 
 const ProfilePage = () => {
   const dispatch = useAppDispatch();
@@ -21,6 +21,7 @@ const ProfilePage = () => {
   return (
     <div className={styles.profilePageContainer}>
       <InfoBanner />
+      <Posts />
       <button onClick={handleLogout}>Logout</button>
     </div>
   );

@@ -1,0 +1,12 @@
+.profilePageContainer {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 100vh;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE, Edge */
+}
+
+.profilePageContainer::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
