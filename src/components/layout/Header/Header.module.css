@@ -3,6 +3,7 @@
   position: sticky;
   top: 0;
   z-index: 10;
+  padding-top: 0px;
   //padding: 10px 20px;
 }
 
@@ -10,23 +11,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
   margin: 0 auto;
   padding-top: 0;
 }
 
 .logo {
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #f4c542;
+  padding-top: 0;
 }
 
 .buttonContainer {
   display: flex;
   gap: 1rem;
-}
-
-.icon {
-  font-size: 16px;
-  color: #333;
 }

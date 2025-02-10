@@ -6,14 +6,16 @@
   right: 0;
   margin: 0 auto;
   background-color: #2d3748;
-  padding: 5px;
+  padding: 15px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   box-sizing: border-box;
 }
 
 .navLinks {
   display: flex;
   justify-content: space-around;
-  gap: 2rem;
+  gap: 1rem;
   padding-left: 0;
 }
 
@@ -35,12 +37,6 @@
 
 @media (min-width: 1024px) {
   .navigation {
-    width: 45%;
-  }
-}
-
-@media (min-width: 1280px) {
-  .navigation {
-    width: 45%;
+    width: 35%;
   }
 }
